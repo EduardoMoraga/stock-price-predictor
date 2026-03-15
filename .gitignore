@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Data & outputs (keep structure via .gitkeep)
+data/*.csv
+data/*.parquet
+outputs/*.png
+outputs/*.html
+outputs/*.csv
+outputs/*.pkl
+outputs/*.joblib
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Logs
+*.log
