@@ -220,6 +220,37 @@ feature_cols = get_feature_columns(df_ml)
 
 st.markdown(f"# {info.get('shortName', ticker)}  <span style='color:{COLORS['accent']}'>({ticker})</span>", unsafe_allow_html=True)
 
+with st.expander("ℹ️ About this project — What it does and how it works", expanded=False):
+    st.markdown(f"""
+**What is this?**
+An ML-powered stock analysis platform that fetches real market data, calculates technical indicators, predicts price direction using machine learning, and backtests trading strategies.
+
+**Data source:**
+> All price data comes from **Yahoo Finance** via the `yfinance` library — real, historical market data updated daily. No API key required. Currently showing **{ticker}**.
+
+**Technical Indicators calculated (20+):**
+- **SMA** (Simple Moving Average, 20/50/200 day): Smoothed price trend — when price crosses above SMA, it's a bullish signal
+- **EMA** (Exponential Moving Average, 12/26 day): Like SMA but gives more weight to recent prices
+- **RSI** (Relative Strength Index): Momentum oscillator (0-100). Above 70 = overbought, below 30 = oversold
+- **MACD**: Difference between 12-day and 26-day EMA — signals momentum shifts
+- **Bollinger Bands**: Price channel (mean ± 2 std). Price touching upper band = potentially overbought
+- **ATR** (Average True Range): Measures volatility — higher ATR = more volatile market
+
+**ML Models — 4 approaches:**
+- **Random Forest Classifier**: Predicts if tomorrow's price goes UP or DOWN using today's technical indicators as features. Ensemble of decision trees that votes on the direction.
+- **Gradient Boosting Classifier**: Similar goal but builds trees sequentially, each correcting the errors of the previous one. Often more accurate than Random Forest.
+- **Linear Regression**: Predicts the actual price value (not just direction). Simple but interpretable baseline.
+- **Random Forest Regressor**: Predicts actual price using all indicators. More flexible than linear regression, captures non-linear relationships.
+
+**Backtesting** answers: *"If I had followed this model's predictions, how much money would I have made?"*
+- Starts with $10,000
+- If model predicts UP → buy. If DOWN → hold cash.
+- Compares against simple buy-and-hold strategy
+- Key metrics: Total return, Sharpe ratio (risk-adjusted return), Max drawdown (worst peak-to-trough loss), Win rate
+
+**⚠️ Disclaimer:** This is an educational/portfolio project. It is NOT financial advice. Past performance does not predict future results. Never invest based solely on ML model predictions.
+    """)
+
 last_close = float(raw_df["Close"].iloc[-1])
 prev_close = float(raw_df["Close"].iloc[-2]) if len(raw_df) > 1 else last_close
 change = last_close - prev_close
