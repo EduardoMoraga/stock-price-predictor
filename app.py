@@ -144,7 +144,27 @@ with st.sidebar:
     st.markdown("ML-powered stock analysis")
     st.markdown("---")
 
-    ticker = st.text_input("Ticker Symbol", value="AAPL").strip().upper()
+    POPULAR_TICKERS = {
+        "Apple (AAPL)": "AAPL",
+        "Microsoft (MSFT)": "MSFT",
+        "Amazon (AMZN)": "AMZN",
+        "Google (GOOGL)": "GOOGL",
+        "Tesla (TSLA)": "TSLA",
+        "Nvidia (NVDA)": "NVDA",
+        "Meta / Facebook (META)": "META",
+        "Netflix (NFLX)": "NFLX",
+        "Coca-Cola (KO)": "KO",
+        "Walmart (WMT)": "WMT",
+        "Samsung (005930.KS)": "005930.KS",
+        "MercadoLibre (MELI)": "MELI",
+        "Falabella (FALABELLA.SN)": "FALABELLA.SN",
+        "Custom...": "",
+    }
+    selected_label = st.selectbox("Select a stock", list(POPULAR_TICKERS.keys()))
+    if selected_label == "Custom...":
+        ticker = st.text_input("Enter ticker symbol", value="AAPL").strip().upper()
+    else:
+        ticker = POPULAR_TICKERS[selected_label]
 
     col_s, col_e = st.columns(2)
     with col_s:

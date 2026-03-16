@@ -1,9 +1,12 @@
 # Stock Price Predictor
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://stock-price-predictor-vr5aubmeapze59cho3rnkd.streamlit.app/)
 ![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3%2B-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-00d4aa?style=for-the-badge)
+
+**[Live Demo](https://stock-price-predictor-vr5aubmeapze59cho3rnkd.streamlit.app/)**
 
 An ML-powered stock analysis and forecasting platform with an interactive Streamlit dashboard. Combines technical analysis, classification and regression models, and a strategy backtesting engine into a single, deployable application.
 
